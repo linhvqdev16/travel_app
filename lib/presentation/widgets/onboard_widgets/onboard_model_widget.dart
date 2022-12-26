@@ -1,10 +1,11 @@
 import 'package:base_flutter_app/constants/colors.dart';
 import 'package:base_flutter_app/constants/images.dart';
-import 'package:base_flutter_app/presentation/controllers/sign_in/sign_in.dart';
 import 'package:base_flutter_app/presentation/widgets/buttons/evaluate_button_widget.dart';
 import 'package:base_flutter_app/presentation/widgets/onboard_widgets/page_model_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:onboarding/onboarding.dart';
+
+import '../../controllers/authenticate/sign_in/sign_in.dart';
 
 class OnBoardModelWidget extends StatefulWidget{
 
@@ -88,7 +89,7 @@ class _OnBoardModelWidget extends State<OnBoardModelWidget>{
               child: ColoredBox(
                 color: ColorCustom.pageModelBackgroundColor,
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 75, left: 25, bottom: 50),
+                  padding: const EdgeInsets.only(top: 0, left: 25, bottom: 50),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

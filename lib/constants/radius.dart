@@ -7,4 +7,6 @@ class RadiusCustom{
   static const double radiusHeader = 35;
 
   static const double radiusInputFormField = 8;
+
+  static const double radiusImagePortrait = 12;
 }

@@ -18,4 +18,6 @@ class FontSizes{
 
   static const double s18 = 18;
 
+  static const double s22 = 22;
+
 }

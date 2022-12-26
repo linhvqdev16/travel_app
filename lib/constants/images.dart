@@ -12,4 +12,6 @@ class ImagesCustom{
 
   static const String ovalImageHeader = "assets/images/launch_images/oval_image_header.png";
 
+  static const String portraitImageHeader = "assets/images/components/portrait.png";
+
 }

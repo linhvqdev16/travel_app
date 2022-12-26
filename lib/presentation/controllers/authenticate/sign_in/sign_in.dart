@@ -1,8 +1,10 @@
+import 'package:base_flutter_app/application/services/navigator_service/navigator_service.dart';
 import 'package:base_flutter_app/constants/colors.dart';
 import 'package:base_flutter_app/constants/font_sizes.dart';
 import 'package:base_flutter_app/constants/icons.dart';
-import 'package:base_flutter_app/presentation/controllers/forget_password/forget_password.dart';
-import 'package:base_flutter_app/presentation/controllers/sign_up/sign_up.dart';
+import 'package:base_flutter_app/presentation/controllers/authenticate/forget_password/forget_password.dart';
+import 'package:base_flutter_app/presentation/controllers/authenticate/sign_up/sign_up.dart';
+import 'package:base_flutter_app/presentation/controllers/home_page/home_page.dart';
 import 'package:base_flutter_app/presentation/widgets/app_bar_widgets/appbar_widgets.dart';
 import 'package:base_flutter_app/presentation/widgets/buttons/checkbox_button_widget.dart';
 import 'package:base_flutter_app/presentation/widgets/buttons/evaluate_button_widget.dart';
@@ -10,7 +12,6 @@ import 'package:base_flutter_app/presentation/widgets/buttons/flat_button_widget
 import 'package:base_flutter_app/presentation/widgets/buttons/text_button_icon_widget.dart';
 import 'package:base_flutter_app/presentation/widgets/text_field_widgets/password_form_field.dart';
 import 'package:base_flutter_app/presentation/widgets/text_field_widgets/text_form_field.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -82,9 +83,7 @@ class _SignInScreen extends State<SignInScreen>{
                     padding: const EdgeInsets.fromLTRB(25, 25 , 0 , 20),
                     child: EvaluateButtonWidget(
                       buttonLabel: "Login",
-                      buttonHandle: (){
-                        print("HIHI");
-                      },
+                      buttonHandle: () => handlerButtonSignIn(context),
                     )))
               ],
             ),
@@ -94,16 +93,16 @@ class _SignInScreen extends State<SignInScreen>{
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Expanded(
+                  const Expanded(
                       flex: 1,
                       child: Divider(height: 1, thickness: 0.8, color: ColorCustom.mineShaft,)),
                   Expanded(
                     flex: 1,
                     child: Container(
-                        margin: EdgeInsets.only(left: 10, right: 10),
-                        child: Text(" or login with ", style: const TextStyle(fontSize: FontSizes.s14, fontWeight: FontWeight.normal, color: ColorCustom.mineShaft))),
+                        margin: const EdgeInsets.only(left: 10, right: 10),
+                        child: const Text(" or login with ", style: TextStyle(fontSize: FontSizes.s14, fontWeight: FontWeight.normal, color: ColorCustom.mineShaft))),
                   ),
-                  Expanded(
+                  const Expanded(
                       flex: 1,
                       child: Divider(height: 1, thickness: 0.8, color: ColorCustom.mineShaft,))
                 ],
@@ -166,11 +165,15 @@ class _SignInScreen extends State<SignInScreen>{
   }
 
   void handlerButtonSignUp(BuildContext context){
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) => SignUpScreen()));
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const SignUpScreen()));
   }
 
   void handlerButtonForgetPassword(BuildContext context){
     Navigator.of(context).push(MaterialPageRoute(builder: (context) => ForgetPasswordScreen()));
+  }
+
+  void handlerButtonSignIn(BuildContext context){
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const HomePageScreen()));
   }
 
 }

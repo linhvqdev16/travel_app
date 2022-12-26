@@ -8,4 +8,5 @@ class IconCustom{
 
   static const String iconFacebook = "assets/icons/icon_facebook.png";
 
+  static const String iconNotification = "assets/icons/icon_notification.png";
 }
