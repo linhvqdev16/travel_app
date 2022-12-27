@@ -14,4 +14,10 @@ class ImagesCustom{
 
   static const String portraitImageHeader = "assets/images/components/portrait.png";
 
+  static const String flightImage = "assets/images/components/flight.png";
+
+  static const String hotelImage = "assets/images/components/hotel.png";
+
+  static const String hotelFlightImage = "assets/images/components/hotel_flight.png";
+
 }

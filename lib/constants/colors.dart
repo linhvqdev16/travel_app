@@ -23,4 +23,10 @@ class ColorCustom{
   static const Color mineShaft = Color(0xFF313131);
 
   static const Color chamBray = Color(0xFF3C5A9A);
+
+  static const Color puertoRico = Color(0xFF3EC8BC);
+
+  static const Color froly = Color(0xFFF77777);
+
+  static const Color atomicTangerine = Color(0xFFFE9C5E);
 }

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:json_annotation/json_annotation.dart';
 
-@JsonSerializable()
 class CategoryModel{
 
   String? label;
@@ -10,10 +8,31 @@ class CategoryModel{
 
   String? iconUrl;
 
+
   CategoryModel({
     this.label,
     this.color,
     this.iconUrl
-});
+ });
+}
 
+
+class PopularDestination{
+  String? namePlace;
+
+  bool? isFavorite = false;
+
+  double? pointRating = 0;
+
+  double? height;
+
+  String? imageUrl;
+
+  PopularDestination({
+    this.namePlace,
+    this.isFavorite,
+    this.pointRating,
+    this.height,
+    this.imageUrl
+  });
 }

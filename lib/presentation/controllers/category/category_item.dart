@@ -1,16 +1,20 @@
 import 'package:base_flutter_app/application/models/catgory_model.dart';
 import 'package:base_flutter_app/constants/colors.dart';
-import 'package:base_flutter_app/constants/font_sizes.dart';
-import 'package:base_flutter_app/constants/images.dart';
-import 'package:base_flutter_app/constants/radius.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../../../constants/font_sizes.dart';
+import '../../../constants/radius.dart';
 
 class CategoryItemWidget extends StatefulWidget{
 
   CategoryModel? categoryModel;
 
-  CategoryItemWidget({Key? key, this.categoryModel}) : super(key: key);
+  int? position;
+
+  int? lengthList;
+
+  CategoryItemWidget({Key? key, this.categoryModel, this.position, this.lengthList}) : super(key: key);
 
   @override
   _CategoryItemWidget createState() => _CategoryItemWidget();
@@ -20,23 +24,22 @@ class _CategoryItemWidget extends State<CategoryItemWidget>{
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-          padding: const EdgeInsets.symmetric(vertical: 35, horizontal: 32),
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(RadiusCustom.radiusImagePortrait)),
-            color: ColorCustom.activeIndicationColor
+          margin:  EdgeInsets.only(top: 10, bottom: 10, left: (widget.position ?? 0) == 0 ?  0 : width * 0.03, right: ((widget.position ?? 0) == (widget.lengthList ?? 0)  ?  0 : width * 0.03)),
+          padding: EdgeInsets.symmetric(vertical: 35, horizontal: width * 0.09),
+          decoration: BoxDecoration(
+              borderRadius: const BorderRadius.all(Radius.circular(RadiusCustom.radiusImagePortrait)),
+              color: (widget.categoryModel?.color ?? ColorCustom.anthensGray).withOpacity(0.2)
           ),
           child: Align(
             alignment: Alignment.center,
-            child: Image.asset(ImagesCustom.portraitImageHeader, height: 30,),
+            child: Image.asset(widget.categoryModel?.iconUrl ?? "", height: 30,),
           ),
         ),
-
-        Expanded(child: Text(widget.categoryModel?.label ?? "", style: const TextStyle(fontSize: FontSizes.s14, fontWeight: FontWeight.normal, color: Colors.black45)))
+        Text(widget.categoryModel?.label ?? "", style: const TextStyle(fontSize: FontSizes.s14, fontWeight: FontWeight.normal, color: Colors.black,))
       ],
     );
   }
