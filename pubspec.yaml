@@ -54,9 +54,9 @@ dependencies:
     # ensures that the code is testable
   riverpod: ^1.0.3+1
 
-
   # This is a sample flutter onboarding plugin you use to attract first-time users when they land on your page, hence the name onboarding. You can implement this widget anyhow you want in your app, by managing its top-level state to show the widget to users at the appropriate time. There are also many parameters that enable you to design this widget to your liking.
   onboarding: ^3.1.0
+
 
 dev_dependencies:
   flutter_test:
