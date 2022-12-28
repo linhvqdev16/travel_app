@@ -9,4 +9,14 @@ class IconCustom{
   static const String iconFacebook = "assets/icons/icon_facebook.png";
 
   static const String iconNotification = "assets/icons/icon_notification.png";
+
+  static const String iconHeart = "assets/icons/icon_heart.png";
+
+  static const String iconStar = "assets/icons/icon_star.png";
+
+  static const String iconHome = "assets/icons/icon_home.png";
+
+  static const String iconUser = "assets/icons/icon_user.png";
+
+  static const String iconBriefcase = "assets/icons/icon_briefcase.png";
 }

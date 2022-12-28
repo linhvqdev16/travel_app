@@ -29,4 +29,6 @@ class ColorCustom{
   static const Color froly = Color(0xFFF77777);
 
   static const Color atomicTangerine = Color(0xFFFE9C5E);
+
+  static const Color yellowColor = Color(0xFFFFC107);
 }

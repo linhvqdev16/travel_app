@@ -20,4 +20,8 @@ class ImagesCustom{
 
   static const String hotelFlightImage = "assets/images/components/hotel_flight.png";
 
+  static const String imagePlace = "assets/images/components/image_place.png";
+
+  static const String imagePlace1 = "assets/images/components/image_place_2.png";
+
 }
