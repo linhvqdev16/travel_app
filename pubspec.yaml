@@ -54,8 +54,12 @@ dependencies:
     # ensures that the code is testable
   riverpod: ^1.0.3+1
 
-  # This is a sample flutter onboarding plugin you use to attract first-time users when they land on your page, hence the name onboarding. You can implement this widget anyhow you want in your app, by managing its top-level state to show the widget to users at the appropriate time. There are also many parameters that enable you to design this widget to your liking.
+  # This is a sample flutter on boarding plugin you use to attract first-time users when they land on your page, hence the name on boarding. You can implement this widget anyhow you want in your app, by managing its top-level state to show the widget to users at the appropriate time. There are also many parameters that enable you to design this widget to your liking.
   onboarding: ^3.1.0
+
+  # The Flutter Date Range Picker is a lightweight widget that allows users to easily select a single date, multiple dates, or a range of dates. Date Picker provides month, year, decade, and century view options to quickly navigate to the desired date.
+  syncfusion_flutter_datepicker: 20.1.55
+
 
 
 dev_dependencies:

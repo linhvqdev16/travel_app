@@ -9,7 +9,13 @@ class EvaluateButtonWidget extends StatefulWidget {
 
   String? buttonLabel;
 
-  EvaluateButtonWidget({Key? key, this.buttonHandle, this.buttonLabel}) : super(key: key);
+  Color? buttonLabelColor;
+
+  Color? backGroundColor;
+
+  double? opacity;
+
+  EvaluateButtonWidget({Key? key, this.buttonHandle, this.buttonLabel, this.buttonLabelColor, this.backGroundColor, this.opacity}) : super(key: key);
 
   @override
   _EvaluateButtonWidget createState() => _EvaluateButtonWidget();
@@ -21,20 +27,21 @@ class _EvaluateButtonWidget extends State<EvaluateButtonWidget>{
   Widget build(BuildContext context) {
     return Container(
       height: 50,
-      margin: const EdgeInsets.only(right: 25),
       padding: const EdgeInsets.symmetric(horizontal: 44),
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(RadiusCustom.radiusButton)),
-        gradient: LinearGradient(colors: [
-          ColorCustom.mediumPurple,
-          ColorCustom.indigoPurple
+      decoration:  BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(RadiusCustom.radiusButton)),
+        gradient:( widget.backGroundColor != null) ? null :  LinearGradient(
+          colors: [
+          ColorCustom.mediumPurple.withOpacity(widget.opacity ?? 1),
+          ColorCustom.indigoPurple.withOpacity(widget.opacity ?? 1)
         ],
         begin: Alignment.topRight,
         end: Alignment.bottomLeft,
-        )
+        ),
+        color: widget.backGroundColor
       ),
       child: TextButton(
-        child: Text(widget.buttonLabel ?? "", style: const TextStyle(color: ColorCustom.colorWhite, fontWeight: FontWeight.bold),),
+        child: Text(widget.buttonLabel ?? "", style: TextStyle(color: widget.buttonLabelColor ?? ColorCustom.colorWhite, fontWeight: FontWeight.bold),),
         onPressed: widget.buttonHandle,
       ),
     ); 

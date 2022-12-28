@@ -14,15 +14,13 @@ class _HomeScreen extends State<HomeScreen>{
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        bottom: true,
-        child: Scaffold(
-          appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(0),
-            child: Container(),
-          ),
-          body: widget.widget,
-        ));
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(0),
+        child: Container(),
+      ),
+      body: widget.widget,
+    );
   }
 
 

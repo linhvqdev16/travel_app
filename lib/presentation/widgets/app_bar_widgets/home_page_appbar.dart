@@ -88,19 +88,20 @@ class _HomePageAppBarWidget extends State<HomePageAppBarWidget>{
                             onPressed: (){
 
                             },
-                            icon: Image.asset(IconCustom.iconNotification)),
+                            icon: Image.asset(IconCustom.iconNotification, height: 35,)),
 
                         Positioned(
-                          top: 0.0,
-                          child: Container(
-                            width: 300.0,
-                            height: 300.0,
-                            decoration: const BoxDecoration(
-                              color: Colors.red,
-                              shape: BoxShape.circle
-                            ),
-                          ), //Icon
-                        ),
+                          right: 13, top: 12,
+                            child:  ClipOval(
+                              child: Material(
+                                color: Colors.red,
+                                child: Container(
+                                  height: 9,
+                                  width: 9,
+                                ),
+                              ),
+                            ))
+
 
                       ],
                     ),
