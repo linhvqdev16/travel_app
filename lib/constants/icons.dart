@@ -27,4 +27,6 @@ class IconCustom{
   static const String iconBedroom = "assets/icons/icon_bedroom.png";
 
   static const String iconGroupUser = "assets/icons/icon_group_users.png";
+
+  static const String iconSort = "assets/icons/icon_sort.png";
 }

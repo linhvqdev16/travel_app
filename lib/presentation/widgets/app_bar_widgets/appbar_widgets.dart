@@ -13,7 +13,9 @@ class AppBarWidget extends StatefulWidget{
 
   String? contentAppBar;
 
-  AppBarWidget({Key? key, this.buttonHandle, this.labelAppBar, this.contentAppBar}) : super(key: key);
+  bool? isRowAppBar;
+
+  AppBarWidget({Key? key, this.buttonHandle, this.labelAppBar, this.contentAppBar, this.isRowAppBar}) : super(key: key);
 
   @override
   _AppBarWidget createState() => _AppBarWidget();
@@ -41,7 +43,35 @@ class _AppBarWidget extends State<AppBarWidget>{
             ),
             image: DecorationImage(image: AssetImage(ImagesCustom.ovalImageHeader), fit: BoxFit.fill),
         ),
-        child: Column(
+        child: (widget.isRowAppBar ?? false) ?
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 25),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                    icon: Image.asset(IconCustom.iconBack),
+                    onPressed: widget.buttonHandle,
+                  ),
+
+                  Align(
+                    alignment: Alignment.center,
+                    child: Text(widget.labelAppBar ?? "",
+                        style: const TextStyle(
+                            fontSize: FontSizes.s22,
+                            fontWeight: FontWeight.bold,
+                            color: ColorCustom.colorWhite
+                        )),
+                  ),
+
+                  IconButton(
+                    icon: Image.asset(IconCustom.iconSort),
+                    onPressed: widget.buttonHandle,
+                  ),
+
+                ],
+              ),
+            ):  Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -54,7 +84,7 @@ class _AppBarWidget extends State<AppBarWidget>{
 
             Padding(padding: EdgeInsets.only(bottom: 0),
             child: Align(
-              alignment: Alignment.bottomCenter,
+              alignment: Alignment.center,
               child: Text(widget.labelAppBar ?? "",
                   style: const TextStyle(
                       fontSize: FontSizes.s18,

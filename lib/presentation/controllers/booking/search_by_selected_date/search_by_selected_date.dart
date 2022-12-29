@@ -51,8 +51,7 @@ class _SearchBySelectedDate extends State<SearchBySelectedDate>{
 
                   },
                 ))
-              ],
-                ),
+              ]),
 
               Container(
                   margin: const EdgeInsets.only(top: 25),
