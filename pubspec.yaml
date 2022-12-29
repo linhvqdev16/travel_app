@@ -60,7 +60,11 @@ dependencies:
   # The Flutter Date Range Picker is a lightweight widget that allows users to easily select a single date, multiple dates, or a range of dates. Date Picker provides month, year, decade, and century view options to quickly navigate to the desired date.
   syncfusion_flutter_datepicker: 20.1.55
 
+  # This package allows you to draw dotted lines with Flutter.
+  dotted_line: ^3.0.0
 
+  # A carousel slider widget.
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:

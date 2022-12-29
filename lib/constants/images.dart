@@ -24,4 +24,6 @@ class ImagesCustom{
 
   static const String imagePlace1 = "assets/images/components/image_place_2.png";
 
+  static const String imageBackgroundHotel = "assets/images/components/image_background_hotel.png";
+
 }

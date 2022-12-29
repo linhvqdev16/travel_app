@@ -52,7 +52,6 @@ class _HomePageScreen extends State<HomePageScreen>{
       widget: SingleChildScrollView(
         child: Column(
           children: [
-
             Row(
               children: [
                 SizedBox(
