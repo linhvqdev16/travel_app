@@ -15,6 +15,9 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
+"# test" 
+"# travel_app" 
+
 Execute the following command in console to get the required dependencies
 
 # flutter pub get 
@@ -27,4 +30,3 @@ Command in order to keep the source code synced automatically
 
 # flutter packages pub run build_runner watch"# test" 
 "# test" 
-"# travel_app" 

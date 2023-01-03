@@ -4,6 +4,8 @@ import 'package:base_flutter_app/constants/icons.dart';
 import 'package:base_flutter_app/constants/images.dart';
 import 'package:base_flutter_app/constants/radius.dart';
 import 'package:base_flutter_app/presentation/widgets/app_bar_widgets/appbar_widgets.dart';
+import 'package:base_flutter_app/presentation/widgets/buttons/evaluate_button_widget.dart';
+import 'package:base_flutter_app/presentation/widgets/icon_background_widget/icon_backgroud_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/cupertino.dart';
@@ -82,7 +84,7 @@ class _HotelDetailScreen extends State<HotelDetailScreen> {
                       controller: scrollController,
                       itemCount: 1,
                       itemBuilder: (BuildContext context, int index) {
-                        return _buildInfoHotel();
+                        return _buildInfoHotel(height);
                       }),
                 );
               },
@@ -93,11 +95,21 @@ class _HotelDetailScreen extends State<HotelDetailScreen> {
     );
   }
 
-  Widget _buildInfoHotel() {
+  Widget _buildInfoHotel(double height) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25),
       child: Column(
         children: [
+
+          Padding(
+            padding: const EdgeInsets.only(top: 15),
+            child: Row(
+              children: [
+                  Divider(height: 1, thickness: 1, color: Colors.black,)
+              ],
+            ),
+          ),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -228,7 +240,7 @@ class _HotelDetailScreen extends State<HotelDetailScreen> {
           Padding(
             padding: EdgeInsets.only(top: 15),
             child: Row(
-              children: [
+              children: const [
                 Expanded(
                     child: Text(
                       "You will find every comfort because many of the services that the hotel offers for travellers and of course the hotel is very comfortable.",
@@ -236,6 +248,100 @@ class _HotelDetailScreen extends State<HotelDetailScreen> {
                           fontSize: FontSizes.s14, fontWeight: FontWeight.normal, color: ColorCustom.doveGrayColor, height: 1.3),
                       textAlign: TextAlign.left
                     )),
+              ],
+            ),
+          ),
+
+          Padding(
+            padding: EdgeInsets.only(top: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children:  [
+
+                IconBackGroundWidget(
+                  iconUrl: IconCustom.iconRestaurant,
+                  textLabel: "Restaurant",
+                  backgroundColor: ColorCustom.mediumPurple,
+                ),
+
+                IconBackGroundWidget(
+                  iconUrl: IconCustom.iconWifi,
+                  textLabel: "Wifi",
+                  backgroundColor: ColorCustom.atomicTangerine,
+                ),
+
+                IconBackGroundWidget(
+                  iconUrl: IconCustom.iconExchange,
+                  textLabel: "Currency Exchange",
+                  backgroundColor: ColorCustom.froly,
+                ),
+
+                IconBackGroundWidget(
+                  iconUrl: IconCustom.iconReception,
+                  textLabel: "24-hour Front Desk",
+                  backgroundColor: ColorCustom.puertoRico,
+                ),
+
+                IconBackGroundWidget(
+                  iconUrl: IconCustom.iconMore,
+                  textLabel: "More",
+                  backgroundColor: ColorCustom.doveGrayColor,
+                )
+
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 15),
+            child: Row(
+              children: [
+                Expanded(
+                    child: Text(
+                      "Location",
+                      style: TextStyle(
+                          fontSize: FontSizes.s16, fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.left,
+                    )),
+              ],
+            ),
+          ),
+
+          Padding(
+            padding: EdgeInsets.only(top: 15),
+            child: Row(
+              children: const [
+                Expanded(
+                    child: Text(
+                        "Located in the famous neighborhood of Seoul, Grand Luxury’s is set in a building built in the 2010s.",
+                        style: TextStyle(
+                            fontSize: FontSizes.s14, fontWeight: FontWeight.normal, color: ColorCustom.doveGrayColor, height: 1.3),
+                        textAlign: TextAlign.left
+                    )),
+              ],
+            ),
+          ),
+
+          Padding(
+            padding: EdgeInsets.only(top: 15),
+            child: Container(
+              height: height * 0.15,
+              decoration: const BoxDecoration(
+                  image: DecorationImage(image: AssetImage(ImagesCustom.imageGoogleMap), fit: BoxFit.cover),
+                  borderRadius: BorderRadius.all(Radius.circular(RadiusCustom.radiusInputFormField))
+              ),
+            ),
+          ),
+
+          Padding(
+            padding: EdgeInsets.only(top: 15, bottom: 15),
+            child: Row(
+              children: [
+                Expanded(child: EvaluateButtonWidget(
+                  buttonLabel: "Select Room",
+                  buttonHandle: (){
+
+                  },
+                ))
               ],
             ),
           ),

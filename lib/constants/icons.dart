@@ -31,4 +31,14 @@ class IconCustom{
   static const String iconSort = "assets/icons/icon_sort.png";
 
   static const String iconHeartWithBorder = "assets/icons/icon_heart_border.png";
+
+  static const String iconWifi = "assets/icons/icon_wifi.png";
+
+  static const String iconRestaurant = "assets/icons/icon_restaurant.png";
+
+  static const String iconExchange = "assets/icons/icon_exchange.png";
+
+  static const String iconMore = "assets/icons/icon_more.png";
+
+  static const String iconReception = "assets/icons/icon_reception.png";
 }

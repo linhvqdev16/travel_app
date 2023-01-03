@@ -26,4 +26,6 @@ class ImagesCustom{
 
   static const String imageBackgroundHotel = "assets/images/components/image_background_hotel.png";
 
+  static const String imageGoogleMap = "assets/images/components/image_google_map.png";
+
 }
