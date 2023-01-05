@@ -1,16 +1,20 @@
 import 'package:base_flutter_app/constants/colors.dart';
-import 'package:base_flutter_app/presentation/controllers/hotels/hotel_card_widget.dart';
+import 'package:base_flutter_app/constants/icons.dart';
+import 'package:base_flutter_app/presentation/controllers/select_room/room_info_item.dart';
 import 'package:base_flutter_app/presentation/widgets/app_bar_widgets/appbar_widgets.dart';
+import 'package:base_flutter_app/presentation/widgets/button_card/button_card_widget.dart';
 import 'package:flutter/material.dart';
 
-class HotelListScreen extends StatefulWidget {
-  const HotelListScreen({Key? key}) : super(key: key);
+class CheckoutWidget extends StatefulWidget{
+
+  CheckoutWidget({Key? key}) : super(key: key);
 
   @override
-  _HotelListScreen createState() => _HotelListScreen();
+  _CheckoutWidget createState() => _CheckoutWidget();
 }
 
-class _HotelListScreen extends State<HotelListScreen> {
+class _CheckoutWidget extends State<CheckoutWidget>{
+
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -27,8 +31,9 @@ class _HotelListScreen extends State<HotelListScreen> {
               SizedBox(
                   height: height * 0.35,
                   child: AppBarWidget(
-                    labelAppBar: "Hotels",
+                    labelAppBar: "Checkout",
                     isRowAppBar: true,
+                    isShowIconSort: true,
                   )),
               Container(
                 margin: EdgeInsets.only(top: height * 0.25),
@@ -37,14 +42,12 @@ class _HotelListScreen extends State<HotelListScreen> {
                     Expanded(child:  SingleChildScrollView(
                       child: Column(
                         children: [
-                          ListView.builder(
-                              scrollDirection: Axis.vertical,
-                              physics: const NeverScrollableScrollPhysics(),
-                              shrinkWrap: true,
-                              itemCount: 5,
-                              itemBuilder: (context, position) {
-                                return HotelCardWidget();
-                              })
+                          RoomItemCardWidget(),
+
+                          ButtonCardWidget(
+                            labelButton: "Test",
+                            iconUrl: IconCustom.iconRestaurant,
+                          )
                         ],
                       ),
                     ))
@@ -56,3 +59,4 @@ class _HotelListScreen extends State<HotelListScreen> {
         ));
   }
 }
+

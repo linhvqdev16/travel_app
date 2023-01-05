@@ -31,4 +31,6 @@ class ColorCustom{
   static const Color atomicTangerine = Color(0xFFFE9C5E);
 
   static const Color yellowColor = Color(0xFFFFC107);
+
+  static const Color hawkesBlue = Color(0xFFE0DDF5);
 }

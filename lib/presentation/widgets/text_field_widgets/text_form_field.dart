@@ -52,7 +52,7 @@ class _TextFormFieldWidget extends State<TextFormFieldWidget>{
       ),
       child: TextFormField(
         controller: widget.textEditingController,
-        autofocus: true,
+        autofocus: false,
         keyboardType: widget.textInputType ?? TextInputType.text,
         decoration: InputDecoration(
             border: InputBorder.none,

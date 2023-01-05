@@ -15,7 +15,9 @@ class AppBarWidget extends StatefulWidget{
 
   bool? isRowAppBar;
 
-  AppBarWidget({Key? key, this.buttonHandle, this.labelAppBar, this.contentAppBar, this.isRowAppBar}) : super(key: key);
+  bool? isShowIconSort;
+
+  AppBarWidget({Key? key, this.buttonHandle, this.labelAppBar, this.contentAppBar, this.isRowAppBar, this.isShowIconSort}) : super(key: key);
 
   @override
   _AppBarWidget createState() => _AppBarWidget();
@@ -64,7 +66,7 @@ class _AppBarWidget extends State<AppBarWidget>{
                         )),
                   ),
 
-                  IconButton(
+                  (widget.isShowIconSort ?? false) ? Container() : IconButton(
                     icon: Image.asset(IconCustom.iconSort),
                     onPressed: widget.buttonHandle,
                   ),

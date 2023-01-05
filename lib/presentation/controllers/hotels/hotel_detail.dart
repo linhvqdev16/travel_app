@@ -69,7 +69,7 @@ class _HotelDetailScreen extends State<HotelDetailScreen> {
                   onPressed: () {},
                 )),
             DraggableScrollableSheet(
-              maxChildSize: 0.6,
+              maxChildSize: 1,
               minChildSize: 0.1,
               initialChildSize: 0.1,
               builder:
@@ -81,6 +81,7 @@ class _HotelDetailScreen extends State<HotelDetailScreen> {
                           topLeft: Radius.circular(RadiusCustom.radiusHeader)),
                       color: ColorCustom.colorWhite),
                   child: ListView.builder(
+                      padding: const EdgeInsets.all(0),
                       controller: scrollController,
                       itemCount: 1,
                       itemBuilder: (BuildContext context, int index) {
@@ -101,43 +102,45 @@ class _HotelDetailScreen extends State<HotelDetailScreen> {
       child: Column(
         children: [
 
-          Padding(
-            padding: const EdgeInsets.only(top: 15),
-            child: Row(
-              children: [
-                  Divider(height: 1, thickness: 1, color: Colors.black,)
-              ],
+          Container(
+            margin: const EdgeInsets.only(top: 15),
+            child: const SizedBox(
+              width: 70,
+              child: Divider(thickness: 5),
             ),
           ),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                  child: Text(
-                "Grand Luxury’s",
-                style: TextStyle(
-                    fontSize: FontSizes.s18, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.left,
-              )),
-              Expanded(
-                  child: RichText(
-                      textAlign: TextAlign.right,
-                      text: const TextSpan(
-                          text: "143",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: FontSizes.s15,
-                              color: Colors.black),
-                          children: [
-                            TextSpan(
-                                text: " / night",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.normal,
-                                    fontSize: FontSizes.s14,
-                                    color: ColorCustom.doveGrayColor))
-                          ]))),
-            ],
+          Container(
+            margin: const EdgeInsets.only(top: 37),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Expanded(
+                    child: Text(
+                  "Grand Luxury’s",
+                  style: TextStyle(
+                      fontSize: FontSizes.s18, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.left,
+                )),
+                Expanded(
+                    child: RichText(
+                        textAlign: TextAlign.right,
+                        text: const TextSpan(
+                            text: "143",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: FontSizes.s15,
+                                color: Colors.black),
+                            children: [
+                              TextSpan(
+                                  text: " / night",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: FontSizes.s14,
+                                      color: ColorCustom.doveGrayColor))
+                            ]))),
+              ],
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 15),
@@ -147,7 +150,7 @@ class _HotelDetailScreen extends State<HotelDetailScreen> {
                   padding: const EdgeInsets.only(right: 10),
                   child: Image.asset(IconCustom.iconLocation),
                 ),
-                Expanded(
+                const Expanded(
                     child: Text("Seoul, South Korea",
                         style: TextStyle(
                             fontSize: FontSizes.s14,
@@ -196,7 +199,7 @@ class _HotelDetailScreen extends State<HotelDetailScreen> {
                 Expanded(
                     child: GestureDetector(
                   onTap: () {},
-                  child: Text(
+                  child: const Text(
                     "See all",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
@@ -339,7 +342,6 @@ class _HotelDetailScreen extends State<HotelDetailScreen> {
                 Expanded(child: EvaluateButtonWidget(
                   buttonLabel: "Select Room",
                   buttonHandle: (){
-
                   },
                 ))
               ],
