@@ -3,7 +3,7 @@ import 'package:base_flutter_app/constants/font_sizes.dart';
 import 'package:base_flutter_app/constants/icons.dart';
 import 'package:base_flutter_app/constants/images.dart';
 import 'package:base_flutter_app/constants/radius.dart';
-import 'package:base_flutter_app/presentation/controllers/checkout/checkout_widget.dart';
+import 'package:base_flutter_app/presentation/controllers/checkout/book_and_review.dart';
 import 'package:base_flutter_app/presentation/controllers/hotels/hotel_detail.dart';
 import 'package:base_flutter_app/presentation/widgets/buttons/evaluate_button_widget.dart';
 import 'package:dotted_line/dotted_line.dart';
@@ -52,13 +52,13 @@ class _RoomItemCardWidget extends State<RoomItemCardWidget>{
                           Expanded(child: Text("Deluxe Room", style: TextStyle(fontSize: FontSizes.s18, fontWeight: FontWeight.bold, color: ColorCustom.doveGrayColor),))
                         ],
                        ),
-                      SizedBox(height: 5),
+                      SizedBox(height: 15),
                       Row(
                         children: [
                           Expanded(child: Text("Room Size : 27 m2", style: TextStyle(fontSize: FontSizes.s12, fontWeight: FontWeight.normal, color: ColorCustom.doveGrayColor),))
                         ],
                       ),
-                      SizedBox(height: 5),
+                      SizedBox(height: 15),
                       Row(
                         children: [
                           Expanded(child: Text("Free Cancellation", style: TextStyle(fontSize: FontSizes.s12, fontWeight: FontWeight.normal, color: ColorCustom.doveGrayColor),))
@@ -153,7 +153,7 @@ class _RoomItemCardWidget extends State<RoomItemCardWidget>{
                     (widget.isListRoom ?? false) ? EvaluateButtonWidget(
                       buttonLabel: "Choose",
                       buttonHandle: (){
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => CheckoutWidget()));
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => BookAndReviewScreen()));
                       },
                     ) :
                     const Expanded(

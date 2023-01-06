@@ -22,6 +22,10 @@ class TextFormFieldWidget extends StatefulWidget{
 
   FloatingLabelBehavior? floatingLabelBehavior;
 
+  Color? colorLabel;
+
+  Color? colorMessage;
+
 
   TextFormFieldWidget({Key? key, this.handleChangeEvent,
     this.labelFromField,
@@ -30,7 +34,10 @@ class TextFormFieldWidget extends StatefulWidget{
     this.textEditingController,
     this.isReadOnly,
     this.formFieldValidator,
-    this.floatingLabelBehavior}) : super(key: key);
+    this.floatingLabelBehavior,
+    this.colorLabel,
+    this.colorMessage
+  }) : super(key: key);
 
   @override
   _TextFormFieldWidget createState() => _TextFormFieldWidget();
@@ -57,9 +64,9 @@ class _TextFormFieldWidget extends State<TextFormFieldWidget>{
         decoration: InputDecoration(
             border: InputBorder.none,
             hintText: widget.messageFormField ?? "",
-            hintStyle: const TextStyle(fontSize: FontSizes.s12, fontWeight: FontWeight.normal, color: ColorCustom.indigoPurple),
+            hintStyle:  TextStyle(fontSize: FontSizes.s12, fontWeight: FontWeight.normal, color: widget.colorMessage ?? ColorCustom.indigoPurple),
             labelText: widget.labelFromField ?? "",
-            labelStyle: const TextStyle(fontSize: FontSizes.s12, fontWeight: FontWeight.bold, color: ColorCustom.indigoPurple),
+            labelStyle:  TextStyle(fontSize: FontSizes.s14, fontWeight: FontWeight.bold, color: widget.colorLabel ?? ColorCustom.indigoPurple),
             contentPadding: const EdgeInsets.only(top: 12, left: 15),
             floatingLabelBehavior: widget.floatingLabelBehavior
         ),

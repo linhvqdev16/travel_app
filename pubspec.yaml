@@ -66,6 +66,9 @@ dependencies:
   # A carousel slider widget.
   carousel_slider: ^4.2.1
 
+  #The stepper widgets help you to show or collect information from users using organized steps. The page indicator widgets allow you to visually notify users about their current position as they scroll through a group of pages.
+  im_stepper: ^0.1.3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

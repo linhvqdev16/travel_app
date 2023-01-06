@@ -46,7 +46,9 @@ class _SelectRoomWidget extends State<SelectRoomWidget>{
                                 shrinkWrap: true,
                                 itemCount: 5,
                                 itemBuilder: (context, position) {
-                                  return RoomItemCardWidget();
+                                  return RoomItemCardWidget(
+                                    isListRoom: true,
+                                  );
                                 })
                           ],
                         ),

@@ -41,4 +41,12 @@ class IconCustom{
   static const String iconMore = "assets/icons/icon_more.png";
 
   static const String iconReception = "assets/icons/icon_reception.png";
+
+  static const String iconDiscount = "assets/icons/icon_discount.png";
+
+  static const String iconCreditCard= "assets/icons/icon_credit_card.png";
+
+  static const String iconMarket = "assets/icons/icon_market.png";
+
+  static const String iconMuseum = "assets/icons/icon_museum.png";
 }
