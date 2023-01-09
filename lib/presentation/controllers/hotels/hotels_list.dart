@@ -1,5 +1,7 @@
 import 'package:base_flutter_app/constants/colors.dart';
+import 'package:base_flutter_app/constants/radius.dart';
 import 'package:base_flutter_app/presentation/controllers/hotels/hotel_card_widget.dart';
+import 'package:base_flutter_app/presentation/controllers/hotels/hotel_filter/hotel_filter.dart';
 import 'package:base_flutter_app/presentation/widgets/app_bar_widgets/appbar_widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -29,6 +31,12 @@ class _HotelListScreen extends State<HotelListScreen> {
                   child: AppBarWidget(
                     labelAppBar: "Hotels",
                     isRowAppBar: true,
+                    buttonHandle: (){
+                      Navigator.of(context).pop();
+                    },
+                    buttonHandlerFilter: (){
+                      showBottomSheetModel(context, height);
+                    },
                   )),
               Container(
                 margin: EdgeInsets.only(top: height * 0.25),
@@ -54,5 +62,19 @@ class _HotelListScreen extends State<HotelListScreen> {
             ],
           ),
         ));
+  }
+
+  void showBottomSheetModel(BuildContext context, double height){
+    showModalBottomSheet<void>(
+      context: context,
+      shape: const RoundedRectangleBorder( // <-- SEE HERE
+        borderRadius: BorderRadius.only(topRight: Radius.circular(RadiusCustom.radiusButton), topLeft: Radius.circular(RadiusCustom.radiusButton)),
+      ),
+      builder: (BuildContext context) {
+        return SizedBox(
+            height: height * 0.8,
+            child: HotelFilterScreen());
+      },
+    );
   }
 }

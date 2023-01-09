@@ -71,7 +71,7 @@ class _HotelDetailScreen extends State<HotelDetailScreen> {
             DraggableScrollableSheet(
               maxChildSize: 1,
               minChildSize: 0,
-              initialChildSize: 0,
+              initialChildSize: 0.5,
               builder:
                   (BuildContext context, ScrollController scrollController) {
                 return Container(

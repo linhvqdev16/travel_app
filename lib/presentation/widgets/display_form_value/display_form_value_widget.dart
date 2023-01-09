@@ -22,7 +22,9 @@ class DisplayFormValueWidget extends StatefulWidget{
 
   Color? iconColor;
 
-  DisplayFormValueWidget({Key? key, this.iconUrl, this.labelForm, this.valueForm, this.handlerClick, this.backGroundStackColor, this.handlerIncreaseNumber, this.isHasHandler, this.iconColor}) : super(key: key);
+  bool? isHalf;
+
+  DisplayFormValueWidget({Key? key, this.iconUrl, this.labelForm, this.valueForm, this.handlerClick, this.backGroundStackColor, this.handlerIncreaseNumber, this.isHasHandler, this.iconColor, this.isHalf}) : super(key: key);
 
   @override
   _DisplayFormValueWidget createState() => _DisplayFormValueWidget();
@@ -42,18 +44,18 @@ class _DisplayFormValueWidget extends State<DisplayFormValueWidget>{
             borderRadius: BorderRadius.all(Radius.circular(RadiusCustom.radiusInputFormField))
         ),
         margin: const EdgeInsets.only(top: 25),
-        padding: const EdgeInsets.only(left: 25),
+        padding: EdgeInsets.only( left: (widget.isHalf ?? false)  ? 0 : 25),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
                 flex: 1,
                 child: Container(
-              width: width * 0.11,
-              padding: const EdgeInsets.all(12),
-              margin: EdgeInsets.symmetric(vertical: height * 0.03),
+              width: (widget.isHalf ?? false) ?  width * 0.055 : width * 0.11,
+              padding: const EdgeInsets.all(6),
+              margin: EdgeInsets.symmetric(vertical:  height * 0.03),
               decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(Radius.circular(RadiusCustom.radiusImagePortrait)),
+                  borderRadius: BorderRadius.all(Radius.circular( (widget.isHalf ?? false) ? RadiusCustom.radiusInputFormField : RadiusCustom.radiusImagePortrait)),
                   color: ( widget.backGroundStackColor ?? ColorCustom.doveGrayColor).withOpacity(0.2)
               ),
               child: Align(

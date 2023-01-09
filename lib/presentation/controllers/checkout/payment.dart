@@ -3,6 +3,7 @@ import 'package:base_flutter_app/constants/font_sizes.dart';
 import 'package:base_flutter_app/constants/icons.dart';
 import 'package:base_flutter_app/constants/radius.dart';
 import 'package:base_flutter_app/presentation/controllers/checkout/card_credit_add.dart';
+import 'package:base_flutter_app/presentation/controllers/checkout/confirm_screen.dart';
 import 'package:base_flutter_app/presentation/widgets/app_bar_widgets/appbar_widgets.dart';
 import 'package:base_flutter_app/presentation/widgets/buttons/evaluate_button_widget.dart';
 import 'package:base_flutter_app/presentation/widgets/display_form_value/display_form_value_widget.dart';
@@ -155,7 +156,7 @@ class _PaymentScreen extends State<PaymentScreen>{
                                 Expanded(child: EvaluateButtonWidget(
                                   buttonLabel: "Done",
                                   buttonHandle: (){
-                                    ///TODO SOMETHING
+                                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => ConfirmScreen()));
                                   },
                                 ))
                               ],

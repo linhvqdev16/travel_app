@@ -51,4 +51,16 @@ class IconCustom{
   static const String iconMuseum = "assets/icons/icon_museum.png";
 
   static const String iconVisa = "assets/icons/icon_visa.png";
+
+  static const String iconCheckin = "assets/icons/icon_checkin.png";
+
+  static const String iconCheckout = "assets/icons/icon_checkout.png";
+
+  static const String iconSearch = "assets/icons/icon_search.png";
+
+  static const String iconCurrentLocation = "assets/icons/icon_current_location.png";
+
+  static const String iconSkyScraper = "assets/icons/icon_skyscraper.png";
+
+  static const String iconSoreBy = "assets/icons/icon_sort_by_attributes.png";
 }
