@@ -2,11 +2,8 @@ import 'package:base_flutter_app/constants/colors.dart';
 import 'package:base_flutter_app/constants/font_sizes.dart';
 import 'package:base_flutter_app/constants/icons.dart';
 import 'package:base_flutter_app/constants/radius.dart';
-import 'package:base_flutter_app/presentation/controllers/contact/contact_detail.dart';
-import 'package:base_flutter_app/presentation/controllers/promotion/promotions_add.dart';
-import 'package:base_flutter_app/presentation/controllers/select_room/room_info_item.dart';
+import 'package:base_flutter_app/presentation/controllers/checkout/card_credit_add.dart';
 import 'package:base_flutter_app/presentation/widgets/app_bar_widgets/appbar_widgets.dart';
-import 'package:base_flutter_app/presentation/widgets/button_card/button_card_widget.dart';
 import 'package:base_flutter_app/presentation/widgets/buttons/evaluate_button_widget.dart';
 import 'package:base_flutter_app/presentation/widgets/display_form_value/display_form_value_widget.dart';
 import 'package:base_flutter_app/presentation/widgets/stepper/stepper_widget.dart';
@@ -114,7 +111,7 @@ class _PaymentScreen extends State<PaymentScreen>{
                                   children: [
                                     GestureDetector(
                                       onTap: (){
-
+                                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => CardCreditScreen()));
                                       },
                                       child: Container(
                                         width: MediaQuery.of(context).size.width * 0.5,
