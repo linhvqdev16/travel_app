@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 class FilterCommonScreen extends StatefulWidget {
   String? labelAppText;
 
+  String? labelButton;
+
   bool? isCheckbox;
 
   bool? isShowPrefixIcon;
@@ -16,7 +18,13 @@ class FilterCommonScreen extends StatefulWidget {
   Function()? handlerSelectedAll;
 
   FilterCommonScreen(
-      {Key? key, this.labelAppText, this.isCheckbox, this.list, this.isShowPrefixIcon, this.handlerSelectedAll})
+      {Key? key,
+      this.labelAppText,
+      this.isCheckbox,
+      this.list,
+      this.isShowPrefixIcon,
+      this.handlerSelectedAll,
+      this.labelButton})
       : super(key: key);
 
   @override
@@ -53,32 +61,32 @@ class _FilterCommonScreen extends State<FilterCommonScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-
-              (widget.isCheckbox ?? false) ? Row(
-                children: [
-                  Expanded(child: GestureDetector(
-                    onTap: widget.handlerSelectedAll,
-                    child: Text("Selected all", style: TextStyle(fontWeight: FontWeight.bold, color: ColorCustom.indigoPurple), textAlign: TextAlign.right),
-                  ))
-                ]
-              ) : Container(),
-
+              (widget.isCheckbox ?? false)
+                  ? Row(children: [
+                      Expanded(
+                          child: GestureDetector(
+                        onTap: widget.handlerSelectedAll,
+                        child: Text("Selected all",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: ColorCustom.indigoPurple),
+                            textAlign: TextAlign.right),
+                      ))
+                    ])
+                  : Container(),
               _buildListFilterCondition(widget.list ?? []),
-
               Container(
                 margin: const EdgeInsets.only(top: 25),
                 child: Row(
                   children: [
-                    Expanded(child: EvaluateButtonWidget(
-                      buttonHandle: (){
-
-                      },
-                      buttonLabel: "Done",
+                    Expanded(
+                        child: EvaluateButtonWidget(
+                      buttonHandle: () {},
+                      buttonLabel: widget.labelButton ?? "",
                     ))
                   ],
                 ),
               )
-
             ],
           ),
         ),
@@ -103,26 +111,33 @@ class _FilterCommonScreen extends State<FilterCommonScreen> {
             value: item.isSelected ?? false,
             onChanged: (bool? value) {
               item.isSelected = value;
-              setState(() {
-              });
+              setState(() {});
             },
             activeColor: ColorCustom.indigoPurple,
-            secondary: (item.iconUrl == null)
-                ? Container()
-                : Image.asset(
+            secondary: (item.isShowIcon ?? false)
+                ? Image.asset(
                     item.iconUrl ?? IconCustom.iconStar,
                     color: ColorCustom.indigoPurple,
-                  ),
-          )
-        : RadioListTile(
-            value: item,
-            groupValue: selectedModel,
-            onChanged: (FilterCommonModel? currentModel) {
-              selectedModel = currentModel;
-            },
-            activeColor: ColorCustom.mediumPurple,
-            title: Text(item.labelItem ?? ""),
-          );
+                  )
+                : null)
+        : Theme(
+          data: ThemeData(
+            unselectedWidgetColor: ColorCustom.indigoPurple,
+            backgroundColor: ColorCustom.indigoPurple
+          ),
+          child: RadioListTile(
+              value: item,
+              groupValue: selectedModel,
+              onChanged: (FilterCommonModel? currentModel) {
+                selectedModel = currentModel;
+                setState(() {});
+              },
+              activeColor: ColorCustom.mediumPurple,
+              title: Text(item.labelItem ?? ""),
+              controlAffinity: ListTileControlAffinity.trailing,
+
+            ),
+        );
   }
 }
 
@@ -133,5 +148,8 @@ class FilterCommonModel {
 
   bool? isSelected;
 
-  FilterCommonModel({this.iconUrl, this.labelItem, this.isSelected});
+  bool? isShowIcon;
+
+  FilterCommonModel(
+      {this.iconUrl, this.labelItem, this.isSelected, this.isShowIcon});
 }

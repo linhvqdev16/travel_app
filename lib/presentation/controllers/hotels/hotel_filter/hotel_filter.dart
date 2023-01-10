@@ -26,33 +26,46 @@ class _HotelFilterScreen extends State<HotelFilterScreen> {
 
   List<FilterCommonModel> listFilterModelCommon3 = [];
 
+
+  @override
+  void initState(){
+    super.initState();
+
+    listFilterModelCommon1.add(new FilterCommonModel(iconUrl: IconCustom.iconStar, labelItem: "Wifi", isSelected: false, isShowIcon: true));
+    listFilterModelCommon1.add(new FilterCommonModel(iconUrl: IconCustom.iconStar, labelItem: "Digital TV", isSelected: false,isShowIcon: true));
+    listFilterModelCommon1.add(new FilterCommonModel(iconUrl: IconCustom.iconStar, labelItem: "Parking Area", isSelected: false, isShowIcon: true));
+    listFilterModelCommon1.add(new FilterCommonModel(iconUrl: IconCustom.iconStar, labelItem: "Swimming Pool", isSelected: false, isShowIcon: true));
+    listFilterModelCommon1.add(new FilterCommonModel(iconUrl: IconCustom.iconStar, labelItem: "Currency Exchange", isSelected: false, isShowIcon: true));
+    listFilterModelCommon1.add(new FilterCommonModel(iconUrl: IconCustom.iconStar, labelItem: "Restaurant", isSelected: false, isShowIcon: true));
+    listFilterModelCommon1.add(new FilterCommonModel(iconUrl: IconCustom.iconStar, labelItem: "Car Rental", isSelected: false, isShowIcon: true));
+    listFilterModelCommon1.add(new FilterCommonModel(iconUrl: IconCustom.iconStar, labelItem: "24-hour Front Desk", isSelected: false, isShowIcon: true));
+
+    listFilterModelCommon2.add(new FilterCommonModel(iconUrl: "", labelItem: "Hostels", isSelected: false, isShowIcon: false));
+    listFilterModelCommon2.add(new FilterCommonModel(iconUrl: "", labelItem: "Resorts", isSelected: false, isShowIcon: false));
+    listFilterModelCommon2.add(new FilterCommonModel(iconUrl: "", labelItem: "Hotels", isSelected: false, isShowIcon: false));
+    listFilterModelCommon2.add(new FilterCommonModel(iconUrl: "", labelItem: "Villas", isSelected: false, isShowIcon: false));
+    listFilterModelCommon2.add(new FilterCommonModel(iconUrl: "", labelItem: "Guest Houses", isSelected: false, isShowIcon: false));
+    listFilterModelCommon2.add(new FilterCommonModel(iconUrl: "", labelItem: "Homestays", isSelected: false, isShowIcon: false));
+    listFilterModelCommon2.add(new FilterCommonModel(iconUrl: "", labelItem: "Apartments", isSelected: false, isShowIcon: false));
+    listFilterModelCommon2.add(new FilterCommonModel(iconUrl: "", labelItem: "Others", isSelected: false, isShowIcon: false));
+
+    listFilterModelCommon3.add(new FilterCommonModel(iconUrl: "", labelItem: "Highest popularity", isSelected: false, isShowIcon: false));
+    listFilterModelCommon3.add(new FilterCommonModel(iconUrl: "", labelItem: "Lowest Price", isSelected: false, isShowIcon: false));
+    listFilterModelCommon3.add(new FilterCommonModel(iconUrl: "", labelItem: "Highest Price", isSelected: false, isShowIcon: false));
+    listFilterModelCommon3.add(new FilterCommonModel(iconUrl: "", labelItem: "Highest Rating", isSelected: false, isShowIcon: false));
+    listFilterModelCommon3.add(new FilterCommonModel(iconUrl: "", labelItem: "Nearest Distance", isSelected: false, isShowIcon: false));
+  }
+
   @override
   void didChangeDependencies(){
     super.didChangeDependencies();
+
+    listRatingModel = [];
     listRatingModel.add(new RatingModel(iconUrl: IconCustom.iconStar, isRated: true));
     listRatingModel.add(new RatingModel(iconUrl: IconCustom.iconStar, isRated: true));
     listRatingModel.add(new RatingModel(iconUrl: IconCustom.iconStar, isRated: false));
     listRatingModel.add(new RatingModel(iconUrl: IconCustom.iconStar, isRated: false));
     listRatingModel.add(new RatingModel(iconUrl: IconCustom.iconStar, isRated: false));
-
-    listFilterModelCommon1.add(new FilterCommonModel(iconUrl: IconCustom.iconStar, labelItem: "Wifi", isSelected: false));
-    listFilterModelCommon1.add(new FilterCommonModel(iconUrl: IconCustom.iconStar, labelItem: "Digital TV", isSelected: false));
-    listFilterModelCommon1.add(new FilterCommonModel(iconUrl: IconCustom.iconStar, labelItem: "Parking Area", isSelected: false));
-    listFilterModelCommon1.add(new FilterCommonModel(iconUrl: IconCustom.iconStar, labelItem: "Swimming Pool", isSelected: false));
-    listFilterModelCommon1.add(new FilterCommonModel(iconUrl: IconCustom.iconStar, labelItem: "Currency Exchange", isSelected: false));
-    listFilterModelCommon1.add(new FilterCommonModel(iconUrl: IconCustom.iconStar, labelItem: "Restaurant", isSelected: false));
-    listFilterModelCommon1.add(new FilterCommonModel(iconUrl: IconCustom.iconStar, labelItem: "Car Rental", isSelected: false));
-    listFilterModelCommon1.add(new FilterCommonModel(iconUrl: IconCustom.iconStar, labelItem: "24-hour Front Desk", isSelected: false));
-
-    listFilterModelCommon2.add(new FilterCommonModel(iconUrl: null, labelItem: "Hostels", isSelected: false));
-    listFilterModelCommon2.add(new FilterCommonModel(iconUrl: null, labelItem: "Resorts", isSelected: false));
-    listFilterModelCommon2.add(new FilterCommonModel(iconUrl: null, labelItem: "Hotels", isSelected: false));
-    listFilterModelCommon2.add(new FilterCommonModel(iconUrl: null, labelItem: "Villas", isSelected: false));
-    listFilterModelCommon2.add(new FilterCommonModel(iconUrl: null, labelItem: "Guest Houses", isSelected: false));
-    listFilterModelCommon2.add(new FilterCommonModel(iconUrl: null, labelItem: "Homestays", isSelected: false));
-    listFilterModelCommon2.add(new FilterCommonModel(iconUrl: null, labelItem: "Apartments", isSelected: false));
-    listFilterModelCommon2.add(new FilterCommonModel(iconUrl: null, labelItem: "Others", isSelected: false));
-
   }
   
   @override
@@ -158,6 +171,7 @@ class _HotelFilterScreen extends State<HotelFilterScreen> {
                   isCheckbox: true,
                   labelAppText: "Facilities",
                   list: listFilterModelCommon1,
+                  labelButton: "Done",
                 )));
               },
             ),
@@ -171,6 +185,7 @@ class _HotelFilterScreen extends State<HotelFilterScreen> {
                   isCheckbox: true,
                   labelAppText: "Property type",
                   list: listFilterModelCommon2,
+                  labelButton: "Done",
                 )));
               },
             ),
@@ -179,6 +194,14 @@ class _HotelFilterScreen extends State<HotelFilterScreen> {
               valueForm: "Sort By",
               iconUrl: IconCustom.iconSoreBy,
               backGroundStackColor: ColorCustom.puertoRico,
+              handlerClick: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => FilterCommonScreen(
+                  isCheckbox: false,
+                  labelAppText: "Sort by",
+                  list: listFilterModelCommon3,
+                  labelButton: "Apply",
+                )));
+              },
             ),
 
             Padding(
