@@ -1,3 +1,4 @@
+import 'package:base_flutter_app/presentation/controllers/flight/flight_booking/flight_booking_detail.dart';
 import 'package:flutter/cupertino.dart';
 
 class ListFlightBookingScreen extends StatefulWidget{
@@ -17,9 +18,10 @@ class _ListFlightBookingScreen extends State<ListFlightBookingScreen>{
      return ListView.builder(
        itemCount: widget.numberOfFlight ?? 1,
        shrinkWrap: true,
+       physics: const NeverScrollableScrollPhysics(),
        scrollDirection: Axis.vertical,
        itemBuilder: (context, position){
-         return Container(); 
+         return FlightBookingDetail();
        },
      );
   }

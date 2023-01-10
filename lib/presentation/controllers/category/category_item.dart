@@ -1,5 +1,6 @@
 import 'package:base_flutter_app/application/models/catgory_model.dart';
 import 'package:base_flutter_app/constants/colors.dart';
+import 'package:base_flutter_app/presentation/controllers/flight/flight_screen.dart';
 import 'package:base_flutter_app/presentation/controllers/hotels/hotels_list.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,11 @@ class _CategoryItemWidget extends State<CategoryItemWidget>{
       children: [
         GestureDetector(
           onTap: (){
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) => HotelListScreen()));
+             if((widget.position ?? 0) == 0){
+               Navigator.of(context).push(MaterialPageRoute(builder: (context) => HotelListScreen()));
+             } else if((widget.position ?? 0) == 1){
+               Navigator.of(context).push(MaterialPageRoute(builder: (context) => FlightScreen()));
+             }
           },
           child: Container(
             margin:  EdgeInsets.only(top: 10, bottom: 10, left: (widget.position ?? 0) == 0 ?  0 : width * 0.03, right: ((widget.position ?? 0) == (widget.lengthList ?? 0)  ?  0 : width * 0.03)),

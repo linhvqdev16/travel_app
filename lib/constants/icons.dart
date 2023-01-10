@@ -63,4 +63,11 @@ class IconCustom{
   static const String iconSkyScraper = "assets/icons/icon_skyscraper.png";
 
   static const String iconSoreBy = "assets/icons/icon_sort_by_attributes.png";
+
+  static const String iconSeat = "assets/icons/icon_seat.png";
+
+  static const String iconFlight = "assets/icons/icon_flight.png";
+
+  static const String iconArrow = "assets/icons/icon_arrow.png";
+
 }
