@@ -21,7 +21,7 @@ class _ListFlightBookingScreen extends State<ListFlightBookingScreen>{
        physics: const NeverScrollableScrollPhysics(),
        scrollDirection: Axis.vertical,
        itemBuilder: (context, position){
-         return FlightBookingDetail();
+         return FlightBookingDetail(position: position, isList: true,);
        },
      );
   }
