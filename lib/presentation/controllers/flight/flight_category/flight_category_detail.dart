@@ -32,7 +32,7 @@ class _FlightCategoryDetail extends State<FlightCategoryDetail>{
      child: Align(
        child: Text(
          widget.label ?? "",
-         style: TextStyle(fontWeight: FontWeight.normal, fontSize: FontSizes.s15, color: (widget.isSelected ?? false) ? ColorCustom.colorWhite :  ColorCustom.indigoPurple),
+         style: TextStyle(fontWeight: FontWeight.bold, fontSize: FontSizes.s15, color: (widget.isSelected ?? false) ? ColorCustom.colorWhite :  ColorCustom.indigoPurple),
        ),
      ),
    );

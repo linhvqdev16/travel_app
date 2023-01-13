@@ -28,4 +28,8 @@ class ImagesCustom{
 
   static const String imageGoogleMap = "assets/images/components/image_google_map.png";
 
+  static const String imageSeat = "assets/images/components/image_seat.png";
+
+  static const String imageFirstSeat = "assets/images/components/image_first_seat.png";
+
 }

@@ -81,7 +81,9 @@ class _FilterCommonScreen extends State<FilterCommonScreen> {
                   children: [
                     Expanded(
                         child: EvaluateButtonWidget(
-                      buttonHandle: () {},
+                      buttonHandle: () {
+                        Navigator.of(context).pop();
+                      },
                       buttonLabel: widget.labelButton ?? "",
                     ))
                   ],

@@ -5,6 +5,7 @@ import 'package:base_flutter_app/presentation/controllers/flight/flight_booking/
 import 'package:base_flutter_app/presentation/controllers/flight/flight_booking/list_flight_booking.dart';
 import 'package:base_flutter_app/presentation/controllers/flight/flight_category/flight_category_detail.dart';
 import 'package:base_flutter_app/presentation/controllers/flight/flight_category/flight_category_list.dart';
+import 'package:base_flutter_app/presentation/controllers/flight/search_flight/search_flight_list.dart';
 import 'package:base_flutter_app/presentation/widgets/app_bar_widgets/appbar_widgets.dart';
 import 'package:base_flutter_app/presentation/widgets/buttons/evaluate_button_widget.dart';
 import 'package:flutter/cupertino.dart';
@@ -96,7 +97,9 @@ class _FlightScreen extends State<FlightScreen> {
                     Expanded(
                         child: EvaluateButtonWidget(
                       buttonLabel: "Search",
-                      buttonHandle: () {},
+                      buttonHandle: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => SearchFlightListScreen()));
+                      },
                     ))
                   ],
                 ),

@@ -70,4 +70,17 @@ class IconCustom{
 
   static const String iconArrow = "assets/icons/icon_arrow.png";
 
+  static const String iconFlightBranch1 = "assets/icons/icon_flight_branch_1.png";
+
+  static const String iconFlightBranch2 = "assets/icons/icon_flight_branch_2.png";
+
+  static const String iconFlightBranch3 = "assets/icons/icon_flight_branch_3.png";
+
+  static const String iconFlightBranch4 = "assets/icons/icon_flight_branch_4.png";
+
+  static const String iconFlightVertical = "assets/icons/icon_flight_vertical.png";
+
+  static const String iconOval = "assets/icons/icon_oval.png";
+
+  static const String iconSingleArrow = "assets/icons/icon_single_arrow.png";
 }
