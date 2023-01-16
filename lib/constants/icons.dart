@@ -83,4 +83,8 @@ class IconCustom{
   static const String iconOval = "assets/icons/icon_oval.png";
 
   static const String iconSingleArrow = "assets/icons/icon_single_arrow.png";
+
+  static const String iconImage = "assets/icons/icon_image.png";
+
+  static const String iconQRCode = "assets/icons/icon_qr_code.png";
 }

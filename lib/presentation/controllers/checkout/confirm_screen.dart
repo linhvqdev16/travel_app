@@ -45,6 +45,9 @@ class _ConfirmScreen extends State<ConfirmScreen> {
                   labelAppBar: "Checkout",
                   isRowAppBar: true,
                   isShowIconSort: true,
+                  buttonHandle: (){
+                    Navigator.of(context).pop();
+                  },
                 )),
             Container(
               margin: EdgeInsets.only(top: height * 0.25),

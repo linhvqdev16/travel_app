@@ -3,6 +3,7 @@ import 'package:base_flutter_app/constants/font_sizes.dart';
 import 'package:base_flutter_app/constants/icons.dart';
 import 'package:base_flutter_app/constants/images.dart';
 import 'package:base_flutter_app/constants/radius.dart';
+import 'package:base_flutter_app/presentation/controllers/checkout/book_and_review.dart';
 import 'package:base_flutter_app/presentation/controllers/hotels/hotel_detail.dart';
 import 'package:base_flutter_app/presentation/widgets/buttons/evaluate_button_widget.dart';
 import 'package:dotted_line/dotted_line.dart';
@@ -138,7 +139,7 @@ class _HotelCardWidget extends State<HotelCardWidget>{
                                 EvaluateButtonWidget(
                                   buttonLabel: "Book a room",
                                   buttonHandle: (){
-
+                                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => BookAndReviewScreen()));
                                   },
                                 )
                               ],

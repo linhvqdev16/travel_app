@@ -2,12 +2,13 @@ import 'package:base_flutter_app/constants/colors.dart';
 import 'package:base_flutter_app/constants/font_sizes.dart';
 import 'package:base_flutter_app/constants/icons.dart';
 import 'package:base_flutter_app/constants/radius.dart';
-import 'package:base_flutter_app/presentation/controllers/checkout/card_credit_add.dart';
-import 'package:base_flutter_app/presentation/controllers/checkout/confirm_screen.dart';
+import 'package:base_flutter_app/presentation/controllers/flight/flight_item/flight_item_screen.dart';
+import 'package:base_flutter_app/presentation/controllers/flight/flight_screen.dart';
 import 'package:base_flutter_app/presentation/widgets/app_bar_widgets/appbar_widgets.dart';
 import 'package:base_flutter_app/presentation/widgets/buttons/evaluate_button_widget.dart';
 import 'package:base_flutter_app/presentation/widgets/display_form_value/display_form_value_widget.dart';
 import 'package:base_flutter_app/presentation/widgets/stepper/stepper_widget.dart';
+import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 
 class FlightPaymentScreen extends StatefulWidget{
@@ -40,6 +41,9 @@ class _FlightPaymentScreen extends State<FlightPaymentScreen>{
                     labelAppBar: "Checkout",
                     isRowAppBar: true,
                     isShowIconSort: true,
+                    buttonHandle: (){
+                      Navigator.of(context).pop();
+                    },
                   )),
               Container(
                 margin: EdgeInsets.only(top: height * 0.25),
@@ -54,97 +58,118 @@ class _FlightPaymentScreen extends State<FlightPaymentScreen>{
                               child: StepperWidget()),
 
 
-                          Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 25),
-                            child: DisplayFormValueWidget(
-                              valueForm: "Mini Market",
-                              iconUrl: IconCustom.iconMarket,
-                              backGroundStackColor: ColorCustom.atomicTangerine,
-                            ),
-                          ),
+                          FlightItemScreen(isShowQRRCode: true),
 
-                          Container(
-                            height: height * 0.2,
-                            decoration: const BoxDecoration(
-                                color: ColorCustom.colorWhite,
-                                borderRadius: BorderRadius.all(Radius.circular(RadiusCustom.radiusInputFormField))
-                            ),
-                            margin: const EdgeInsets.only(top: 25, left: 25, right: 25),
-                            padding: const EdgeInsets.only(left: 25),
-                            child: Column(
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      width: width * 0.11,
-                                      padding: const EdgeInsets.all(15),
-                                      margin: EdgeInsets.symmetric(vertical: height * 0.03),
-                                      decoration: BoxDecoration(
-                                          borderRadius: const BorderRadius.all(Radius.circular(RadiusCustom.radiusImagePortrait)),
-                                          color: ColorCustom.froly.withOpacity(0.2)
-                                      ),
-                                      child: Align(
-                                        alignment: Alignment.center,
-                                        child: Image.asset(IconCustom.iconCreditCard),
-                                      ),
+
+                          Card(
+                            elevation: 0,
+                            margin: const EdgeInsets.only(left: 25, right: 25, top: 25),
+                            shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(
+                                    Radius.circular(
+                                        RadiusCustom.radiusInputFormField))),
+                            color: ColorCustom.colorWhite,
+                            child: Container(
+                              margin: const EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 15),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 10),
+                                    child: Row(
+                                      children: [
+                                        Expanded(child: Text("1 Passenger",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.normal,
+                                              fontSize: FontSizes.s14,
+                                              color: ColorCustom.doveGrayColor),
+                                          textAlign: TextAlign.left,)),
+
+                                        Expanded(child: Text("245",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.normal,
+                                              fontSize: FontSizes.s14,
+                                              color: ColorCustom.doveGrayColor),
+                                          textAlign: TextAlign.right,))
+
+                                      ],
                                     ),
-                                    const SizedBox(width: 25),
+                                  ),
 
-                                    Expanded(
-                                        flex:  5,
-                                        child: Column(
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 10),
+                                    child: Row(
+                                      children: [
+                                        Expanded(child: Text("Insurance",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.normal,
+                                              fontSize: FontSizes.s14,
+                                              color: ColorCustom.doveGrayColor),
+                                          textAlign: TextAlign.left,)),
 
-                                            Text("Credit / Debit Card",
-                                                style: const TextStyle(fontSize: FontSizes.s14, fontWeight: FontWeight.bold, color: Colors.black),
-                                                textAlign: TextAlign.left,
-                                                overflow: TextOverflow.clip)
+                                        Expanded(child: Text("-",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.normal,
+                                              fontSize: FontSizes.s14,
+                                              color: ColorCustom.doveGrayColor),
+                                          textAlign: TextAlign.right,))
 
-                                          ],
-                                        )),
-                                  ],
-                                ),
+                                      ],
+                                    ),
+                                  ),
 
-                                Row(
-                                  children: [
-                                    GestureDetector(
-                                      onTap: (){
-                                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => CardCreditScreen()));
-                                      },
-                                      child: Container(
-                                        width: MediaQuery.of(context).size.width * 0.5,
-                                        height: MediaQuery.of(context).size.height * 0.065,
-                                        decoration: BoxDecoration(
-                                            borderRadius: const BorderRadius.all(Radius.circular(RadiusCustom.radiusHeader)),
-                                            color: ColorCustom.hawkesBlue.withOpacity(0.7)),
-                                        child: Row(
-                                          children: [
-                                            Container(
-                                                margin: const EdgeInsets.only(right: 10),
-                                                child: Icon(Icons.add_circle_rounded, size: width * 0.13, color: ColorCustom.colorWhite,)),
+                                  const Padding(
+                                      padding: EdgeInsets.only(top: 10),
+                                      child: DottedLine(
+                                        direction: Axis.horizontal,
+                                        lineLength: double.infinity,
+                                        lineThickness: 1.0,
+                                        dashLength: 4.0,
+                                        dashColor:
+                                        ColorCustom.deActiveIndicationColor,
+                                        dashRadius: 0.0,
+                                        dashGapLength: 4.0,
+                                        dashGapColor: Colors.white,
+                                        dashGapRadius: 0.0,
+                                      )),
 
-                                            Expanded(
-                                                child: Text("Add Card",
-                                                  style: const TextStyle(fontSize: FontSizes.s15, fontWeight: FontWeight.bold, color: ColorCustom.mediumPurple),))
-                                          ],
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                )
-                              ],
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 10),
+                                    child: Row(
+                                      children: [
+                                        Expanded(child: Text("Total",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: FontSizes.s14,
+                                              color: ColorCustom.doveGrayColor),
+                                          textAlign: TextAlign.left,)),
+
+                                        Expanded(child: Text("245",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: FontSizes.s14,
+                                              color: ColorCustom.doveGrayColor),
+                                          textAlign: TextAlign.right,))
+
+                                      ],
+                                    ),
+                                  ),
+
+
+                                ],
+                              ),
                             ),
                           ),
 
                           Container(
                             margin: const EdgeInsets.symmetric(horizontal: 25),
                             child: DisplayFormValueWidget(
-                              valueForm: "Bank Transfer",
-                              iconUrl: IconCustom.iconMuseum,
-                              backGroundStackColor: ColorCustom.puertoRico,
+                              valueForm: "Master Card",
+                              labelForm: "Credit / Debit Card",
+                              iconUrl: IconCustom.iconCreditCard,
+                              backGroundStackColor: ColorCustom.atomicTangerine,
                             ),
                           ),
 
@@ -154,9 +179,9 @@ class _FlightPaymentScreen extends State<FlightPaymentScreen>{
                             child: Row(
                               children: [
                                 Expanded(child: EvaluateButtonWidget(
-                                  buttonLabel: "Done",
+                                  buttonLabel: "Pay Now",
                                   buttonHandle: (){
-                                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => ConfirmScreen()));
+                                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => FlightScreen()));
                                   },
                                 ))
                               ],

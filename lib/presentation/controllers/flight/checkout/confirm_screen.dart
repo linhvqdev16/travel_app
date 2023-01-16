@@ -44,6 +44,9 @@ class _FlightConfirmScreen extends State<FlightConfirmScreen> {
                   labelAppBar: "Checkout",
                   isRowAppBar: true,
                   isShowIconSort: true,
+                  buttonHandle: (){
+                    Navigator.of(context).pop();
+                  },
                 )),
             Container(
               margin: EdgeInsets.only(top: height * 0.25),

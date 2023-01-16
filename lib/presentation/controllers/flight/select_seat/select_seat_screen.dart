@@ -3,7 +3,7 @@ import 'package:base_flutter_app/constants/font_sizes.dart';
 import 'package:base_flutter_app/constants/icons.dart';
 import 'package:base_flutter_app/constants/images.dart';
 import 'package:base_flutter_app/constants/radius.dart';
-import 'package:base_flutter_app/presentation/controllers/flight/checkout/payment.dart';
+import 'package:base_flutter_app/presentation/controllers/flight/checkout/book_and_review.dart';
 import 'package:base_flutter_app/presentation/controllers/flight/select_seat/seat_view/list_row_number.dart';
 import 'package:base_flutter_app/presentation/controllers/flight/select_seat/seat_view/list_seat_view.dart';
 import 'package:base_flutter_app/presentation/widgets/app_bar_widgets/appbar_widgets.dart';
@@ -48,7 +48,7 @@ class _SelectSeatScreen extends State<SelectSeatScreen> {
                 child: EvaluateButtonWidget(
               buttonLabel: "Process",
               buttonHandle: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => FlightPaymentScreen()));
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => FlightBookAndReviewScreen()));
               },
             ))
           ],
@@ -167,97 +167,99 @@ class _SelectSeatScreen extends State<SelectSeatScreen> {
                           child: Image.asset(ImagesCustom.imageFirstSeat)),
                       Positioned(
                         top: height * 0.33,
-                        child: Column(
-                          children: [
-                            Container(
-                              width: width * 0.6,
-                              margin: const EdgeInsets.only(bottom: 10),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              Container(
+                                width: width * 0.6,
+                                margin: const EdgeInsets.only(bottom: 10),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Expanded(
+                                        child: Text(
+                                      "Bussiness Class",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: FontSizes.s14),
+                                    ))
+                                  ],
+                                ),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Expanded(
-                                      child: Text(
-                                    "Bussiness Class",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: FontSizes.s14),
-                                  ))
+                                  Container(
+                                    margin:
+                                        const EdgeInsets.symmetric(horizontal: 3),
+                                    width: width * 0.2,
+                                    height: height * 0.22,
+                                    child:
+                                        ListSeatViewScreen(listString: listStr),
+                                  ),
+                                  Container(
+                                    width: width * 0.1,
+                                    height: height * 0.22,
+                                    child: ListRowNumberScreen(
+                                        listStr: (listStr.length / 2).round()),
+                                  ),
+                                  Container(
+                                    margin:
+                                        const EdgeInsets.symmetric(horizontal: 3),
+                                    width: width * 0.2,
+                                    height: height * 0.22,
+                                    child:
+                                        ListSeatViewScreen(listString: listStr),
+                                  )
                                 ],
                               ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  margin:
-                                      const EdgeInsets.symmetric(horizontal: 3),
-                                  width: width * 0.2,
-                                  height: height * 0.22,
-                                  child:
-                                      ListSeatViewScreen(listString: listStr),
+                              Container(
+                                width: width * 0.6,
+                                margin: const EdgeInsets.only(bottom: 10),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Expanded(
+                                        child: Text(
+                                      "Economy Class",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: FontSizes.s14),
+                                    ))
+                                  ],
                                 ),
-                                Container(
-                                  width: width * 0.1,
-                                  height: height * 0.22,
-                                  child: ListRowNumberScreen(
-                                      listStr: (listStr.length / 2).round()),
-                                ),
-                                Container(
-                                  margin:
-                                      const EdgeInsets.symmetric(horizontal: 3),
-                                  width: width * 0.2,
-                                  height: height * 0.22,
-                                  child:
-                                      ListSeatViewScreen(listString: listStr),
-                                )
-                              ],
-                            ),
-                            Container(
-                              width: width * 0.6,
-                              margin: const EdgeInsets.only(bottom: 10),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Expanded(
-                                      child: Text(
-                                    "Economy Class",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: FontSizes.s14),
-                                  ))
-                                ],
                               ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  margin:
-                                      const EdgeInsets.symmetric(horizontal: 3),
-                                  width: width * 0.2,
-                                  height: height * 0.3,
-                                  child:
-                                      ListSeatViewScreen(listString: listStr),
-                                ),
-                                Container(
-                                  width: width * 0.1,
-                                  height: height * 0.3,
-                                  child: ListRowNumberScreen(
-                                      listStr: (listStr.length / 2).round()),
-                                ),
-                                Container(
-                                  margin:
-                                      const EdgeInsets.symmetric(horizontal: 3),
-                                  width: width * 0.2,
-                                  height: height * 0.3,
-                                  child:
-                                      ListSeatViewScreen(listString: listStr),
-                                )
-                              ],
-                            )
-                          ],
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    margin:
+                                        const EdgeInsets.symmetric(horizontal: 3),
+                                    width: width * 0.2,
+                                    height: height * 0.3,
+                                    child:
+                                        ListSeatViewScreen(listString: listStr),
+                                  ),
+                                  Container(
+                                    width: width * 0.1,
+                                    height: height * 0.3,
+                                    child: ListRowNumberScreen(
+                                        listStr: (listStr.length / 2).round()),
+                                  ),
+                                  Container(
+                                    margin:
+                                        const EdgeInsets.symmetric(horizontal: 3),
+                                    width: width * 0.2,
+                                    height: height * 0.3,
+                                    child:
+                                        ListSeatViewScreen(listString: listStr),
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
                         ),
                       )
                     ],

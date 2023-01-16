@@ -4,8 +4,7 @@ import 'package:base_flutter_app/constants/radius.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ButtonCardWidget extends StatefulWidget{
-
+class ButtonCardWidget extends StatefulWidget {
   Color? backgroundColorIcon;
 
   Color? backgroundColorButton;
@@ -20,15 +19,25 @@ class ButtonCardWidget extends StatefulWidget{
 
   Function()? buttonHandle;
 
+  Widget? widget;
 
-  ButtonCardWidget({Key? key, this.backgroundColorIcon, this.backgroundColorButton, this.titleButton, this.iconUrl, this.labelButton, this.buttonHandle, this.iconColor}) : super(key: key);
+  ButtonCardWidget(
+      {Key? key,
+      this.backgroundColorIcon,
+      this.backgroundColorButton,
+      this.titleButton,
+      this.iconUrl,
+      this.labelButton,
+      this.buttonHandle,
+      this.iconColor,
+      this.widget})
+      : super(key: key);
 
   @override
   _ButtonCardWidget createState() => _ButtonCardWidget();
 }
 
-class _ButtonCardWidget extends State<ButtonCardWidget>{
-
+class _ButtonCardWidget extends State<ButtonCardWidget> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -38,8 +47,8 @@ class _ButtonCardWidget extends State<ButtonCardWidget>{
       child: Card(
         elevation: 0,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(RadiusCustom.radiusInputFormField))
-        ),
+            borderRadius: BorderRadius.all(
+                Radius.circular(RadiusCustom.radiusInputFormField))),
         color: ColorCustom.colorWhite,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -52,20 +61,29 @@ class _ButtonCardWidget extends State<ButtonCardWidget>{
                     padding: const EdgeInsets.all(10),
                     margin: const EdgeInsets.only(right: 15),
                     decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.all(Radius.circular(RadiusCustom.radiusButton)),
-                        color: ( widget.backgroundColorIcon ?? ColorCustom.doveGrayColor).withOpacity(0.2)
-                    ),
+                        borderRadius: const BorderRadius.all(
+                            Radius.circular(RadiusCustom.radiusButton)),
+                        color: (widget.backgroundColorIcon ??
+                                ColorCustom.doveGrayColor)
+                            .withOpacity(0.2)),
                     child: Align(
                       alignment: Alignment.center,
-                      child: Image.asset(widget.iconUrl ?? "", height: 20, color: widget.iconColor),
+                      child: Image.asset(widget.iconUrl ?? "",
+                          height: 20, color: widget.iconColor),
                     ),
                   ),
-
-                  Expanded(child: Text(widget.titleButton ?? "",
-                                       style: const TextStyle(fontSize: FontSizes.s14, fontWeight: FontWeight.bold, color: Colors.black), ))
-
+                  Expanded(
+                      child: Text(
+                    widget.titleButton ?? "",
+                    style: const TextStyle(
+                        fontSize: FontSizes.s14,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                  ))
                 ],
               ),
+
+              Container(child: widget.widget ?? null),
 
               Row(
                 children: [
@@ -76,30 +94,36 @@ class _ButtonCardWidget extends State<ButtonCardWidget>{
                       width: MediaQuery.of(context).size.width * 0.5,
                       height: MediaQuery.of(context).size.height * 0.065,
                       decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.all(Radius.circular(RadiusCustom.radiusHeader)),
+                          borderRadius: const BorderRadius.all(
+                              Radius.circular(RadiusCustom.radiusHeader)),
                           color: ColorCustom.hawkesBlue.withOpacity(0.7)),
                       child: Row(
                         children: [
                           Container(
                               margin: const EdgeInsets.only(right: 10),
-                              child: Icon(Icons.add_circle_rounded, size: width * 0.13, color: ColorCustom.colorWhite,)),
-
+                              child: Icon(
+                                Icons.add_circle_rounded,
+                                size: width * 0.13,
+                                color: ColorCustom.colorWhite,
+                              )),
                           Expanded(
-                              child: Text( widget.labelButton ?? "",
-                                style: const TextStyle(fontSize: FontSizes.s15, fontWeight: FontWeight.bold, color: ColorCustom.mediumPurple),))
+                              child: Text(
+                            widget.labelButton ?? "",
+                            style: const TextStyle(
+                                fontSize: FontSizes.s15,
+                                fontWeight: FontWeight.bold,
+                                color: ColorCustom.mediumPurple),
+                          ))
                         ],
                       ),
                     ),
                   )
                 ],
               )
-
             ],
           ),
         ),
       ),
     );
   }
-
-
 }

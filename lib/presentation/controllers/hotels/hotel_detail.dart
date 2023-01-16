@@ -3,6 +3,7 @@ import 'package:base_flutter_app/constants/font_sizes.dart';
 import 'package:base_flutter_app/constants/icons.dart';
 import 'package:base_flutter_app/constants/images.dart';
 import 'package:base_flutter_app/constants/radius.dart';
+import 'package:base_flutter_app/presentation/controllers/checkout/book_and_review.dart';
 import 'package:base_flutter_app/presentation/widgets/app_bar_widgets/appbar_widgets.dart';
 import 'package:base_flutter_app/presentation/widgets/buttons/evaluate_button_widget.dart';
 import 'package:base_flutter_app/presentation/widgets/icon_background_widget/icon_backgroud_widget.dart';
@@ -59,7 +60,9 @@ class _HotelDetailScreen extends State<HotelDetailScreen> {
                 left: 25,
                 child: IconButton(
                   icon: Image.asset(IconCustom.iconBack),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
                 )),
             Positioned(
                 top: height * 0.15,
@@ -342,6 +345,7 @@ class _HotelDetailScreen extends State<HotelDetailScreen> {
                 Expanded(child: EvaluateButtonWidget(
                   buttonLabel: "Select Room",
                   buttonHandle: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => BookAndReviewScreen()));
                   },
                 ))
               ],

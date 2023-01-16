@@ -8,7 +8,9 @@ import 'package:flutter/material.dart';
 
 class ContactDetailScreen extends StatefulWidget{
 
-  ContactDetailScreen({Key? key}) : super(key: key);
+  String? label;
+
+  ContactDetailScreen({Key? key, this.label}) : super(key: key);
 
   @override
   _ContactDetailScreen createState() => _ContactDetailScreen();
@@ -24,7 +26,7 @@ class _ContactDetailScreen extends State<ContactDetailScreen>{
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(height * 0.3),
         child: AppBarWidget(
-          labelAppBar: "Contact Details",
+          labelAppBar: widget.label ?? "Contact Details",
           isRowAppBar: true,
           isShowIconSort: true,
           buttonHandle: (){

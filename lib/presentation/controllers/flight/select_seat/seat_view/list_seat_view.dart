@@ -19,7 +19,6 @@ class _ListSeatViewScreen extends State<ListSeatViewScreen> {
     var height = MediaQuery.of(context).size.height;
     return GridView.builder(
       physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 5.0,

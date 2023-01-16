@@ -2,8 +2,10 @@ import 'package:base_flutter_app/constants/colors.dart';
 import 'package:base_flutter_app/constants/icons.dart';
 import 'package:base_flutter_app/presentation/controllers/checkout/payment.dart';
 import 'package:base_flutter_app/presentation/controllers/contact/contact_detail.dart';
+import 'package:base_flutter_app/presentation/controllers/flight/checkout/payment.dart';
+import 'package:base_flutter_app/presentation/controllers/flight/flight_item/flight_item_screen.dart';
+import 'package:base_flutter_app/presentation/controllers/flight/list_seat_passengers/list_seat_passengers.dart';
 import 'package:base_flutter_app/presentation/controllers/promotion/promotions_add.dart';
-import 'package:base_flutter_app/presentation/controllers/select_room/room_info_item.dart';
 import 'package:base_flutter_app/presentation/widgets/app_bar_widgets/appbar_widgets.dart';
 import 'package:base_flutter_app/presentation/widgets/button_card/button_card_widget.dart';
 import 'package:base_flutter_app/presentation/widgets/buttons/evaluate_button_widget.dart';
@@ -39,6 +41,9 @@ class _FlightBookAndReviewScreen extends State<FlightBookAndReviewScreen>{
                     labelAppBar: "Checkout",
                     isRowAppBar: true,
                     isShowIconSort: true,
+                    buttonHandle: (){
+                      Navigator.of(context).pop();
+                    },
                   )),
               Container(
                 margin: EdgeInsets.only(top: height * 0.25),
@@ -54,25 +59,37 @@ class _FlightBookAndReviewScreen extends State<FlightBookAndReviewScreen>{
 
 
 
-                          RoomItemCardWidget(),
+                          FlightItemScreen(),
 
                           ButtonCardWidget(
                             labelButton: "Add Contact",
                             iconUrl: IconCustom.iconUser,
-                            iconColor: ColorCustom.indigoPurple,
+                            iconColor: ColorCustom.activeIndicationColor,
                             titleButton: "Contact Details",
-                            backgroundColorIcon: ColorCustom.mediumPurple,
+                            backgroundColorIcon: ColorCustom.activeIndicationColor,
                             buttonHandle: (){
                               Navigator.of(context).push(MaterialPageRoute(builder: (context) => ContactDetailScreen()));
                             },
                           ),
 
                           ButtonCardWidget(
+                            labelButton: "Passengers & Seats",
+                            iconUrl: IconCustom.iconSeat,
+                            iconColor: ColorCustom.froly,
+                            titleButton: "Add Passenger",
+                            widget: ListSeatPassengersWidget(),
+                            backgroundColorIcon: ColorCustom.froly,
+                            buttonHandle: (){
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => ContactDetailScreen(label: "Add Passenger",)));
+                            },
+                          ),
+
+                          ButtonCardWidget(
                             labelButton: "Add Promo Code",
                             iconUrl: IconCustom.iconDiscount,
-                            iconColor: ColorCustom.atomicTangerine,
+                            iconColor: ColorCustom.puertoRico,
                             titleButton: "Promo Code",
-                            backgroundColorIcon: ColorCustom.atomicTangerine,
+                            backgroundColorIcon: ColorCustom.puertoRico,
                             buttonHandle: (){
                               Navigator.of(context).push(MaterialPageRoute(builder: (context) => PromotionScreen()));
                             },
@@ -86,7 +103,7 @@ class _FlightBookAndReviewScreen extends State<FlightBookAndReviewScreen>{
                                 Expanded(child: EvaluateButtonWidget(
                                   buttonLabel: "Payment",
                                   buttonHandle: (){
-                                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => PaymentScreen()));
+                                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => FlightPaymentScreen()));
                                   },
                                 ))
                               ],
