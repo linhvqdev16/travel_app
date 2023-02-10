@@ -3,6 +3,7 @@ import 'package:base_flutter_app/constants/icons.dart';
 import 'package:base_flutter_app/presentation/controllers/booking/search_by_guest_room/search_by_guest_room.dart';
 import 'package:base_flutter_app/presentation/controllers/booking/search_by_selected_date/search_by_selected_date.dart';
 import 'package:base_flutter_app/presentation/controllers/destination/search_destination.dart';
+import 'package:base_flutter_app/presentation/controllers/review/list_review_screen.dart';
 import 'package:base_flutter_app/presentation/controllers/select_room/select_room_widget.dart';
 import 'package:base_flutter_app/presentation/widgets/app_bar_widgets/appbar_widgets.dart';
 import 'package:base_flutter_app/presentation/widgets/buttons/evaluate_button_widget.dart';
@@ -64,6 +65,15 @@ class _BookingScreen extends State<BookingScreen>{
                  backGroundStackColor: ColorCustom.puertoRico,
                  handlerClick: (){
                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => SearchByGuestRoom()));
+                 },
+               ),
+
+               DisplayFormValueWidget(
+                 valueForm: "Reviews",
+                 iconUrl: IconCustom.iconBedroom,
+                 backGroundStackColor: ColorCustom.puertoRico,
+                 handlerClick: (){
+                   Navigator.of(context).push(MaterialPageRoute(builder: (context) => ListReviewScreen()));
                  },
                ),
 
